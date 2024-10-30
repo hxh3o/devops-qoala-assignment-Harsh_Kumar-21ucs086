@@ -62,9 +62,9 @@ To stop the containers, press Ctrl+C in the terminal where Docker Compose is run
 3. Docker and Docker Compose
 
 ## TroubleShooting
-**1. Port 80 Already in Use:** If youu encounter an error that port 80 is already allocated, ensure no other service is using port 80 on your machine, or update the ```docker-compose.yaml``` file to epose to different port.
-**2. Syntax or Connectivity Issues:** For syntax errors or connectivity issues, check the DockerFile and nging.conf files for any typos or misconfigurations.
-**3. For Container Already in Use:** If an error shows stating that container is already in use, either kill that container first and the build the ```docker-compose.yaml``` or rename the container name  ```proxy_pass http://python-app-service:8000``` in the ```nginx.conf``` file.
+1. **Port 80 Already in Use:** If youu encounter an error that port 80 is already allocated, ensure no other service is using port 80 on your machine, or update the ```docker-compose.yaml``` file to epose to different port.
+2. **Syntax or Connectivity Issues:** For syntax errors or connectivity issues, check the DockerFile and nging.conf files for any typos or misconfigurations.
+3. **For Container Already in Use:** If an error shows stating that container is already in use, either kill that container first and the build the ```docker-compose.yaml``` or rename the container name  ```proxy_pass http://python-app-service:8000``` in the ```nginx.conf``` file.
 
 ## Author
 Harsh Kumar
