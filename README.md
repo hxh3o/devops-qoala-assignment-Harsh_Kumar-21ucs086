@@ -31,14 +31,23 @@ Introduction**: Contains the brief report on the Assignment done.
 
 ## Running the Application Locally
 To set up and run the application locally, follow these steps:
+1. **Build the Docker Image from the docker file by using:
+   ```bash
+   cd nginx
+   docker build -t local-nginx .
+   ```
+   ```bash
+   cd python
+   docker build -t local-python-app .
+   ```
 
-1. **Build the Docker Images**: Use Docker Compose to build and set up the containers:
+2. **Build the Docker Images**: Use Docker Compose to build and set up the containers:
    ```bash
    docker-compose up --build
 
 This command builds both the Flask app and Nginx images and then starts the containers.
 
-2. **Access the Application**: Once the containers are up and running, open a web browser and go to:
+3. **Access the Application**: Once the containers are up and running, open a web browser and go to:
    ``` http://localhost```
    You should see the application's web page displaying IP address, MAC address, username, and timestamp information.
 
