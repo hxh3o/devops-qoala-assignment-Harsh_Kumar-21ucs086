@@ -1,5 +1,12 @@
 # Dockerized Flask and Nginx Web Application
 
+## Deployment
+
+The assignment has been successfully deployed on AWS. You can access the application using the following link:
+
+[http://ec2-54-146-236-40.compute-1.amazonaws.com](http://ec2-54-146-236-40.compute-1.amazonaws.com)
+
+
 ## Overview
 This project is a Dockerized web application using **Flask** as the backend and **Nginx** as a reverse proxy server. The application retrieves and displays key user information, including the IP address, MAC address, system username, and a timestamp, rendered on a simple HTML page. This project demonstrates the integration of Docker, Flask, and Nginx, showcasing the setup of a reverse proxy and a containerized application architecture.
 
