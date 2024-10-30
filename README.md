@@ -1,88 +1,59 @@
-# DevOps Assignment: Debugging and Running a Dockerized Application
+# Dockerized Flask and Nginx Web Application
 
-Welcome to your DevOps assignment! Your goal is to debug and deploy a Dockerized application. The steps below outline the tasks you’ll complete, including setup, debugging, running, testing, and submitting your work.
+## Overview
+This project is a Dockerized web application using **Flask** as the backend and **Nginx** as a reverse proxy server. The application retrieves and displays key user information, including the IP address, MAC address, system username, and a timestamp, rendered on a simple HTML page. This project demonstrates the integration of Docker, Flask, and Nginx, showcasing the setup of a reverse proxy and a containerized application architecture.
 
-## Assignment Overview
+## Features
+- **Flask Web Application**: A basic Flask app to retrieve and display user details.
+- **Nginx Reverse Proxy**: Nginx acts as a reverse proxy server for the Flask app, optimizing performance and providing additional security.
+- **Docker Integration**: Both the application and Nginx server are containerized using Docker and Docker Compose, ensuring a consistent and portable environment.
 
-In this assignment, you’ll:
-1. Set up Docker and Docker Compose.
-2. Build Docker images and launch containers.
-3. Debug and resolve intentional errors in the code to ensure the application runs correctly.
-4. Verify the application in your browser.
-5. Document your process and submit your work.
+## Getting Started
 
----
+### Prerequisites
+Make sure you have Docker and Docker Compose installed on your local machine:
+- **Docker**: [Install Docker](https://docs.docker.com/get-docker/)
+- **Docker Compose**: [Install Docker Compose](https://docs.docker.com/compose/install/)
 
-## Requirements
+### Clone the Repository
+Clone this repository to your local device:
+```bash
+   git clone <repository-url>
+   cd <repository-folder>
+```
 
-**Tools Needed:**
-- **System:** Use any laptop, PC, or cloud server.
-- **Tools:** Docker and Docker Compose must be installed and configured.
+## Project Structure
+- **/python**: Contains the Flask application with its Dockerfile.
+- **/nginx**: Contains the Nginx configuration files and Dockerfile for the Nginx server.
 
----
+## Running the Application Locally
+To set up and run the application locally, follow these steps:
 
-## Steps
+1. **Build the Docker Images**: Use Docker Compose to build and set up the containers:
+   ```bash
+   docker-compose up --build
 
-### 1. Initial Setup
-1. **Clone the GitHub Repository:**
-   - Start by cloning the provided GitHub repository, which contains the `Dockerfiles`, `docker-compose.yml` file, and the application code.
-   
-2. **Build Docker Images:**
-   - Build each Docker image locally using the provided Dockerfiles.
-   - Tag each image appropriately to be referenced by the `docker-compose.yml` file.
+This command builds both the Flask app and Nginx images and then starts the containers.
 
-### 2. Running the Docker Compose File
-1. **Start the Containers:**
-   - Use the provided `docker-compose.yml` file to launch all containers.
-   - **Note:** There are intentional errors in the code. Part of your assignment is to identify and fix these errors so the application runs correctly.
+2. **Access the Application**: Once the containers are up and running, open a web browser and go to:
+   ``` http://localhost```
+   You should see the application's web page displaying IP address, MAC address, username, and timestamp information.
 
-### 3. Debugging and Testing
-1. **Identify Issues:**
-   - Check the logs for any errors while building and running containers.
-   - Examine the application code, Dockerfiles, and `docker-compose.yml` file to identify intentional errors.
+## Stopping the Application
+To stop the containers, press Ctrl+C in the terminal where Docker Compose is running, or run:
+   ```bash
+   docker-compose down
+```
+## Technologies Used
+1. Python (Flask)
+2. Nginx
+3. Docker and Docker Compose
 
-2. **Resolve Errors:**
-   - Document the issues and explain your debugging steps.
-   - Apply necessary changes to the code, Dockerfiles, or configuration to resolve these errors.
+## TroubleShooting
+**1. Port 80 Already in Use:** If youu encounter an error that port 80 is already allocated, ensure no other service is using port 80 on your machine, or update the ```docker-compose.yaml``` file to epose to different port.
+**2. Syntax or Connectivity Issues:** For syntax errors or connectivity issues, check the DockerFile and nging.conf files for any typos or misconfigurations.
+**3. For Container Already in Use:** If an error shows stating that container is already in use, either kill that container first and the build the ```docker-compose.yaml``` or rename the container name  ```proxy_pass http://python-app-service:8000``` in the ```nginx.conf``` file.
 
-3. **Verify Website Access:**
-   - Open a web browser and access the application on `http://localhost` (or `http://<server-IP>` if hosted on a cloud server) to confirm it is running correctly.
-   - Check Nginx or other web server logs to confirm requests are being logged as expected.
+## Author
+Harsh Kumar
 
-### 4. Submitting the Assignment
-1. **GitHub Repository:**
-   - Create a new GitHub repository and name it in this format: `devops-qoala-assignment-<name>-<rollnumber>`.
-   - Upload all relevant files (including the modified code, Dockerfiles, `docker-compose.yml`, and other configurations) to this repository.
-   - Grant access to `devops@qoala.id`. **Note:** Submissions without access granted will not be considered.
-
-2. **Screenshots:**
-   - Take a screenshot of the application running in the browser.
-   - Include a screenshot showing Nginx (or web server) access logs that confirm a successful request.
-
-3. **Report:**
-   - Write a concise, one-page report that includes:
-     - **Issues Identified:** Summarize any errors encountered during image building, container setup, or application testing.
-     - **Resolution Steps:** Describe each action taken to resolve the issues and ensure the application runs correctly.
-
----
-
-## Bonus Points
-
-### Cloud Deployment
-- For extra credit, deploy the application on a cloud server (AWS, GCP, or Azure) and provide an accessible endpoint, such as an IP address or DNS record.
-- This will allow your work to be verified through the shared endpoint.
-
----
-
-## Summary Checklist
-- Set up Docker and Docker Compose.
-- Clone and build Docker images.
-- Debug and fix issues in code, Dockerfiles, or `docker-compose.yml`.
-- Start containers and verify application accessibility on port 80.
-- Upload files to a new GitHub repository and grant access to `devops@qoala.id`.
-- Submit screenshots and a concise report of issues and solutions.
-- (Bonus) Deploy on a cloud provider and share endpoint details.
-
----
-
-Good luck, and happy debugging!
