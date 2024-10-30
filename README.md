@@ -25,6 +25,9 @@ Clone this repository to your local device:
 ## Project Structure
 - **/python**: Contains the Flask application with its Dockerfile.
 - **/nginx**: Contains the Nginx configuration files and Dockerfile for the Nginx server.
+- **/Screenshots**: Contains the screenshots of the application running on the web browser, and the logs history of nginx build after running ```docker-compose up --build```.
+- **/Report on Issues Faced and Resolutions in Docker Application Deployment
+Introduction**: Contains the brief report on the Assignment done.
 
 ## Running the Application Locally
 To set up and run the application locally, follow these steps:
